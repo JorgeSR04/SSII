@@ -1,0 +1,26 @@
+
+
+
+FUNCIÓN VERIFICAR
+    Verificado = FALSO;
+
+    SI Contenida(Meta, BH) ENTONCES
+        DEVOLVER VERDADERO;
+
+    CC = Equiparar(Consecuentes(BC), Meta);
+
+    MIENTRAS NoVacio(CC) Y NO Verificado HACER
+        R = Resolver(CC);
+        Eliminar(R, CC);
+        NuevasMetas = ExtraerAntecedentes(R);
+        Verificado = VERDADERO;
+
+        MIENTRAS NoVacio(NuevasMetas) Y Verificado HACER
+            NMet = SeleccionarMeta(NuevasMetas);
+            Eliminar(NMet, NuevasMetas);
+            Verificado = VERIFICAR(NMet, BH);
+        
+        SI Verificado ENTONCES
+            Añadir(Meta, BH);
+
+    DEVOLVER Verificado;

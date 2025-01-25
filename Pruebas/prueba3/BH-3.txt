@@ -1,0 +1,10 @@
+7
+2_3años, FC=-1
+mas3años, FC=1
+conduce2_3horas, FC=1
+conducemas3horas, FC=-1
+acompañado, FC=-1
+joven, FC=0.4
+ebrio, FC=0
+Objetivo
+responsable

@@ -1,0 +1,44 @@
+FUNCIÓN VERIFICAR
+FCResultado = 0
+ 
+SI Contenida(Meta, BaseHechos) ENTONCES
+    DEVOLVER Meta.factorCerteza
+
+CC = Equiparar(BaseConocimientos, Meta)
+nCC = 0  // Contador para el número de reglas que tienen como consecuente la meta
+
+MIENTRAS NoVacio(CC) HACER
+    nCC++  // Contar las reglas
+
+    R = Resolver(CC)
+    Eliminar(CC)
+    NuevasMetas = ExtraerAntecedentes(R)
+    FCVerificado = VERIFICAR(SeleccionarMeta(NuevasMetas), BaseHechos, BaseConocimientos)
+    Eliminar(NuevasMetas)
+
+    // Si entra en el bucle es porque la regla tiene almenos una conjunción o disyunción
+    MIENTRAS NoVacio(NuevasMetas) HACER
+        Nmet = SeleccionarMeta(NuevasMetas)
+        Eliminar(NuevasMetas)
+
+        // Aplicar el caso 1 para cada nueva meta y el FC acumulado
+        FCVerificado = aplicarCaso1(R, Nmet, FCVerificado, VERIFICAR(Nmet, BaseHechos, BaseConocimientos))
+
+    FIN MIENTRAS 
+
+    FCVerificado = aplicarCaso3(R, FCVerificado) // Siempre se aplica el caso 3
+
+    	// Si la meta es consecuente de más de una regla, aplicar el caso 2
+    SI nCC > 1 ENTONCES
+        FCResultado = aplicarCaso2(FCVerificado, FCResultado )
+    SINO
+        // solo se ha explorado una regla o no quedan más en el CC
+        FCResultado = FCVerificado
+    FIN SI
+
+FIN MIENTRAS
+
+AñadirBH(Meta, FCresultado, BaseHechos)
+
+DEVOLVER FCresultado
+D

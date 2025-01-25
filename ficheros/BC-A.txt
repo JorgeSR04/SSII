@@ -1,0 +1,11 @@
+9
+R1: Si seLevantaTiempo Entonces saleTempranoCasa, FC=0.8  
+R2: Si seDucha Entonces saleTempranoCasa, FC=-0.2  
+R3: Si desayuna o lavaDientes Entonces saleTempranoCasa, FC=-0.3  
+R4: Si busPuntualParadaAnterior Entonces busPuntual, FC=0.7  
+R5: Si saleTempranoCasa Entonces cogeBus, FC=0.9  
+R6: Si hayEspacioBus Entonces cogeBus, FC=0.2 
+R7: Si busPuntual Entonces cogeBus, FC=-0.2  
+R8: Si cogeBus y busPuntual Entonces llegaTiempoExamen, FC=0.9  
+R9: Si hayAtasco Entonces llegaTiempoExamen, FC=-0.5  
+

@@ -1,0 +1,17 @@
+Nombre base de conocimientos y de hechos respectivamente: BC-2.txt, BH-21.txt
+Con objetivo: ganaEST
+
+Regla R6: Si les2pivEST Entonces ganaEST
+	Hecho inical: les2pivEST FC = 1
+	Caso 3: FC = -0.6
+Regla R4: Si publicoEqui Entonces ganaEST
+	Hecho inical: publicoEqui FC = 0.35
+	Caso 3: FC = -0.193
+Caso 2: entre R6 y R4 FC = -0.677
+Regla R1: Si arbMod Entonces ganaEST
+	Hecho inical: arbMod FC = 1
+	Caso 3: FC = 0.4
+Caso 2: entre R6R4 y R1 FC = -0.462
+Hecho: ganaEST FC = -0.462 almacenado en la base de hechos
+
+Conclusion: Es poco probable que el hecho ganaEST no suceda

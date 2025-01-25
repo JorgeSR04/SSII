@@ -1,0 +1,42 @@
+Nombre base de conocimientos y de hechos respectivamente: BC-A.txt, BH-A.txt
+Con objetivo: llegaTiempoExamen
+
+Regla R9: Si hayAtasco Entonces llegaTiempoExamen
+	Hecho inical: hayAtasco FC = 0.4
+	Caso 3: FC = -0.2
+Regla R8: Si cogeBus y busPuntual Entonces llegaTiempoExamen
+	Regla R4: Si busPuntualParadaAnterior Entonces busPuntual
+		Hecho inical: busPuntualParadaAnterior FC = 0.7
+		Caso 3: FC = 0.49
+	Hecho: busPuntual FC = 0.49 almacenado en la base de hechos
+	Regla R7: Si busPuntual Entonces cogeBus
+		Hecho inical: busPuntual FC = 0.49
+		Caso 3: FC = -0.098
+	Regla R6: Si hayEspacioBus Entonces cogeBus
+		Hecho inical: hayEspacioBus FC = 0.8
+		Caso 3: FC = 0.16
+	Caso 2: entre R7 y R6 FC = 0.069
+	Regla R5: Si saleTempranoCasa Entonces cogeBus
+		Regla R3: Si desayuna o lavaDientes Entonces saleTempranoCasa
+			Hecho inical: lavaDientes FC = 0.5
+			Hecho inical: desayuna FC = 1
+			Caso 1: FC = 1
+			Caso 3: FC = -0.3
+		Regla R2: Si seDucha Entonces saleTempranoCasa
+			Hecho inical: seDucha FC = 1
+			Caso 3: FC = -0.2
+		Caso 2: entre R3 y R2 FC = -0.44
+		Regla R1: Si seLevantaTiempo Entonces saleTempranoCasa
+			Hecho inical: seLevantaTiempo FC = 0.8
+			Caso 3: FC = 0.64
+		Caso 2: entre R3R2 y R1 FC = 0.357
+		Hecho: saleTempranoCasa FC = 0.357 almacenado en la base de hechos
+		Caso 3: FC = 0.321
+	Caso 2: entre R7R6 y R5 FC = 0.368
+	Hecho: cogeBus FC = 0.368 almacenado en la base de hechos
+	Caso 1: FC = 0.368
+	Caso 3: FC = 0.331
+Caso 2: entre R9 y R8 FC = 0.164
+Hecho: llegaTiempoExamen FC = 0.164 almacenado en la base de hechos
+
+Conclusion: Es muy poco probable que el hecho llegaTiempoExamen sea cierto

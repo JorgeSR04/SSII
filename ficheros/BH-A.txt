@@ -1,0 +1,10 @@
+7
+seLevantaTiempo, FC=0.8  
+seDucha, FC=1 
+desayuna, FC=1
+lavaDientes, FC=0.5
+busPuntualParadaAnterior, FC=0.7  
+hayEspacioBus, FC=0.8  
+hayAtasco, FC=0.4  
+Objetivo
+llegaTiempoExamen
